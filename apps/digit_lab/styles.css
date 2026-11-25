@@ -1,0 +1,42 @@
+:root { color-scheme: light dark; font-family: system-ui, sans-serif; line-height: 1.55; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #f3f6fa; color: #172334; }
+.container { max-width: 850px; margin: auto; padding: 1.25rem; }
+header, section { background: #fff; border: 1px solid #cad3df; border-radius: .7rem; padding: 1.2rem; margin-bottom: 1rem; }
+h1, h2, h3 { line-height: 1.2; }
+h1 { margin-top: .25rem; }
+.eyebrow { color: #235282; font-size: .8rem; font-weight: 700; letter-spacing: .08em; }
+.notice { border-left: .3rem solid #a95c00; background: #fff4df; padding: .75rem; }
+label { display: block; font-weight: 700; margin: 1rem 0 .35rem; }
+textarea, select, button { font: inherit; border: 1px solid #65758a; border-radius: .35rem; padding: .6rem; }
+textarea, select { width: 100%; background: #fff; color: #172334; }
+textarea { font-family: ui-monospace, monospace; resize: vertical; }
+button { background: #164a7e; color: white; cursor: pointer; }
+button:hover { background: #0b345d; }
+:focus-visible { outline: 3px solid #d17800; outline-offset: 3px; }
+.hint { color: #43556c; font-size: .93rem; }
+.error { color: #a40017; font-weight: 700; }
+[aria-invalid="true"] { border: 2px solid #a40017; }
+dl { margin: 0; }
+dt { font-weight: 700; margin-top: .8rem; }
+dd { margin: .15rem 0; }
+code, output { font-family: ui-monospace, monospace; overflow-wrap: anywhere; }
+output { display: block; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; max-width: 32rem; }
+caption { text-align: left; font-weight: 700; margin-bottom: .4rem; }
+th, td { border: 1px solid #cad3df; padding: .35rem .65rem; text-align: left; }
+footer { color: #43556c; font-size: .85rem; padding-bottom: 1rem; }
+@media (prefers-color-scheme: dark) {
+  body { background: #111922; color: #edf3fa; }
+  header, section { background: #1d2b3b; border-color: #52667d; }
+  .eyebrow { color: #a9d5ff; }
+  .notice { background: #4c3619; border-color: #ffcb78; }
+  textarea, select { background: #111922; color: #edf3fa; border-color: #a5b7cb; }
+  button { background: #28639c; }
+  button:hover { background: #377ebd; }
+  .hint, footer { color: #c1d1e2; }
+  .error { color: #ffb3b9; }
+  [aria-invalid="true"] { border-color: #ffb3b9; }
+  th, td { border-color: #52667d; }
+}

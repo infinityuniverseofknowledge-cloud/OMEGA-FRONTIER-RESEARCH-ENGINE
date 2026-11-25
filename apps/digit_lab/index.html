@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Laboratório de dígitos | Omega Frontier</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <p class="eyebrow">OMEGA FRONTIER · FERRAMENTA OFFLINE</p>
+      <h1>Laboratório de dígitos</h1>
+      <p>Explore uma transformação reversível de sequências decimais, preservando zeros à esquerda.</p>
+      <p class="notice"><strong>Status hipotético:</strong> esta ferramenta é uma exploração matemática. Os resultados não constituem descoberta científica nem evidência de uma hipótese geral.</p>
+    </header>
+
+    <section aria-labelledby="controls-heading">
+      <h2 id="controls-heading">Transformação</h2>
+      <label for="mode">Operação</label>
+      <select id="mode" aria-describedby="method">
+        <option value="forward">Direta: dígitos → deltas</option>
+        <option value="inverse">Inversa: deltas → dígitos</option>
+      </select>
+      <label for="digits">Sequência de entrada</label>
+      <textarea id="digits" rows="3" inputmode="numeric" spellcheck="false" autocomplete="off" aria-describedby="input-help error">00137</textarea>
+      <p id="input-help" class="hint">Digite apenas dígitos ASCII de 0 a 9, sem espaços ou separadores. Os zeros iniciais são mantidos.</p>
+      <p id="error" class="error" role="alert" hidden></p>
+      <button id="clear" type="button">Limpar entrada</button>
+    </section>
+
+    <section aria-labelledby="results-heading">
+      <h2 id="results-heading">Resultado</h2>
+      <div id="results" aria-live="polite" aria-atomic="true">
+        <p id="result-status" class="hint"></p>
+        <dl>
+          <dt>Entrada</dt><dd><code id="input-display">—</code></dd>
+          <dt>Saída</dt><dd><output id="output" for="digits mode">—</output></dd>
+          <dt>Quantidade de dígitos</dt><dd id="length">—</dd>
+        </dl>
+      </div>
+      <h3>Frequência de dígitos</h3>
+      <p class="hint">Contagens separadas da entrada e da saída. A tabela fica vazia quando a entrada é inválida.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Frequência por dígito</caption>
+          <thead><tr><th scope="col">Dígito</th><th scope="col">Entrada</th><th scope="col">Saída</th></tr></thead>
+          <tbody id="frequency"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="method-heading" id="method">
+      <h2 id="method-heading">Como funciona</h2>
+      <p>Na direta, o primeiro dígito é a âncora e permanece igual. Cada dígito seguinte é a diferença entre o dígito atual e o anterior, módulo 10. Na inversa, começa-se pela âncora e soma-se cada delta ao último dígito recuperado, módulo 10.</p>
+      <p>Exemplo: <code>00137 → 00124 → 00137</code>. A transformação é reversível por construção; isso não implica compressão ou significado científico adicional.</p>
+    </section>
+    <footer>Execução local, sem rede ou armazenamento persistente.</footer>
+  </main>
+</body>
+</html>
