@@ -14,7 +14,7 @@ Este é um protótipo experimental offline, não o sistema completo. Não conté
 - `omega/optimization.py`: benchmark limitado com Held–Karp, vizinho mais próximo, 2-opt, simulated annealing, tabu e algoritmo genético; sementes e gaps explícitos.
 - `omega/sat.py`: enumeração limitada de CNF, verificadores de certificados, minimalidade por exclusão de cláusulas e resolventes binários; não resolve P versus NP.
 - `omega/models.py`: vetores de solo sintéticos e autômato celular 2D sem calibração real.
-- `books/index.html`: catálogo offline com o Livro 01 em rascunho e outros 19 ainda não escritos. A revisão editorial permanece pendente.
+- O livro 01 permanece em rascunho no projeto local e não integra esta publicação, pendente de revisão editorial e de direitos. Os outros 19 livros não foram escritos.
 - `omega/server.py` e `apps/dashboard/`: painel experimental com API limitada a `127.0.0.1` para dígitos, SAT, TSP e modelos sintéticos. Não há autenticação; outros processos locais podem acessá-lo. Não exponha na rede.
 - `omega/theorem_graph.py`: grafo curado pequeno, dependências e busca de rotas limitadas; pontuações são editoriais, não provas matemáticas.
 - `omega/research_cycle.py`: execução limitada e reproduzível de experimentos com parâmetros e hashes; resultados em `reports/`, sem garantia de imutabilidade.
