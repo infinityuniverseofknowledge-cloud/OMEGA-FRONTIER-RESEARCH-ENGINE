@@ -1,0 +1,217 @@
+{
+  "constraints": [
+    "Only ASCII digits in bases 2..10; all words of each length 1..max_length, including leading zeros.",
+    "Digit-sum hypothesis applies to anchor concatenated with modular differences, not differences alone.",
+    "CNFs are fixed tiny examples; UNSAT certificate is exhaustive only for its input.",
+    "TSP is a seeded symmetric nonnegative integer matrix; brute force and Held-Karp are exponential and limited to n<=8.",
+    "Tests and instances do not establish P=NP or P!=NP, nor any biological conclusion.",
+    "Digests detect accidental changes when independently compared; they are not signatures or tamper-proof storage."
+  ],
+  "evidence_status": "bounded_computational_experiments_not_general_proofs",
+  "input_sha256": "be126e52c016ca985130701a4a3391553179276790b5ba150ab7690a6da16aa5",
+  "inputs": {
+    "cnfs": [
+      {
+        "clauses": [
+          [
+            1,
+            2
+          ],
+          [
+            -1,
+            2
+          ]
+        ],
+        "name": "satisfiable",
+        "num_vars": 2
+      },
+      {
+        "clauses": [
+          [
+            1
+          ],
+          [
+            -1
+          ]
+        ],
+        "name": "contradictory_units",
+        "num_vars": 1
+      }
+    ],
+    "digit_domain": "all base-b strings of lengths 1..max_length in lexicographic order",
+    "parameters": {
+      "base": 10,
+      "max_length": 4,
+      "max_weight": 100,
+      "seed": 42,
+      "tsp_n": 6,
+      "word_count": 11110
+    },
+    "tsp_distribution": "independent uniform integer edge weights; symmetric; no triangle inequality required",
+    "tsp_matrix": [
+      [
+        0,
+        81,
+        14,
+        94,
+        28,
+        86
+      ],
+      [
+        81,
+        0,
+        3,
+        35,
+        17,
+        94
+      ],
+      [
+        14,
+        3,
+        0,
+        31,
+        94,
+        69
+      ],
+      [
+        94,
+        35,
+        31,
+        0,
+        13,
+        11
+      ],
+      [
+        28,
+        17,
+        94,
+        13,
+        0,
+        75
+      ],
+      [
+        86,
+        94,
+        69,
+        11,
+        75,
+        0
+      ]
+    ]
+  },
+  "output_sha256": "87ca883d8bf49e826a03f6e9822d60ffaa5f9352637d98d5d42851ae0b75c87c",
+  "outputs": {
+    "anchored_roundtrip": {
+      "checked": 11110,
+      "per_length": [
+        {
+          "checked": 10,
+          "length": 1
+        },
+        {
+          "checked": 100,
+          "length": 2
+        },
+        {
+          "checked": 1000,
+          "length": 3
+        },
+        {
+          "checked": 10000,
+          "length": 4
+        }
+      ],
+      "status": "passed_on_exhaustive_bounded_domain",
+      "stream_format": "canonical JSON records word/anchor/differences/decoded, each followed by LF, lexicographic length-first",
+      "stream_sha256": "cfb0891d2330bf607ed4b30b36a563b54fffdcd9d84159e3b3bd57c1154bb6ca"
+    },
+    "digit_sum_hypothesis": {
+      "checked": 11110,
+      "first_counterexample": {
+        "anchor": "1",
+        "anchored_output": "19",
+        "differences": "9",
+        "input": "10",
+        "input_digit_sum": 1,
+        "output_digit_sum": 10
+      },
+      "hypothesis": "sum(anchor + differences) <= sum(input)",
+      "status": "refuted"
+    },
+    "sat": {
+      "instances": [
+        {
+          "certificate": {
+            "assignment": [
+              false,
+              true
+            ],
+            "status": "SAT"
+          },
+          "name": "satisfiable",
+          "verified": true
+        },
+        {
+          "certificate": {
+            "falsified_by": [
+              0,
+              1
+            ],
+            "status": "UNSAT"
+          },
+          "name": "contradictory_units",
+          "verified": true
+        }
+      ],
+      "status": "certificates_verified_on_fixed_instances"
+    },
+    "tsp": {
+      "absolute_gap": 0,
+      "brute_force_cost": 144,
+      "brute_force_route": [
+        0,
+        2,
+        1,
+        4,
+        3,
+        5,
+        0
+      ],
+      "exact_cost": 144,
+      "exact_route": [
+        0,
+        2,
+        1,
+        4,
+        3,
+        5,
+        0
+      ],
+      "heuristic_cost": 144,
+      "heuristic_route": [
+        0,
+        2,
+        1,
+        4,
+        3,
+        5,
+        0
+      ],
+      "permutations_checked": 120,
+      "status": "verified_on_one_instance"
+    }
+  },
+  "schema_version": 1,
+  "timestamp_utc": "2026-11-25T17:32:13.803157+00:00",
+  "versions": {
+    "implementation": "CPython",
+    "module_source_sha256": {
+      "mathcore": "b21c6ff38147da6b356cc1b0cd03e94d82792a3dab60266b7cfa77b86e03d854",
+      "optimization": "64ed8070b264a98e6d555f3836acc046508647111f57d3e769b05330fd80299c",
+      "research_cycle": "f2412f1218e7c654e8e3056b8238667eef45ff39b772cb9a524b05dc274beeb9",
+      "sat": "03514ca4ab7fef8b9f5ad8b770c5f4d30c7c005de99c9466fb577f1b7ecb98c9"
+    },
+    "python": "3.14.4",
+    "schema": 1
+  }
+}
